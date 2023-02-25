@@ -6,6 +6,7 @@
 	flex-direction: column;
 	margin: 200px auto;
 	font-family: 'Helvetica';
+	margin-inline: auto;
 
 	.FormContainer {
 		display: flex;
@@ -16,7 +17,6 @@
 
 		h2 {
 			font-size: 32px;
-			width: 400px;
 		}
 
 		form {
@@ -53,13 +53,31 @@
 			}
 		}
 	}
-	.TodosList {
-		width: 300px;
-		margin-inline: auto;
+	.TodosListContainer {
+		width: 800px;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		height: auto;
 		padding: 20px 40px;
-		background-color: #000;
+
+		.Todo {
+			background-color: rgb(70, 146, 227);
+			width: 100%;
+			padding: 10px 20px;
+			align-items: center;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+			button {
+				background-color: rgb(235, 95, 95);
+				font-size: 22px;
+				padding: 15px 20px;
+				border-radius: 5px;
+				border: none;
+			}
+		}
 	}
 }
