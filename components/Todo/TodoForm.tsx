@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { uuid } from 'uuidv4';
+import { TodosList } from './TodosList';
 import styles from '../../src/styles/todo.module.scss';
 
 const useTodos = (): [string[], (value: string) => void] => {
@@ -34,20 +35,20 @@ export const TodoForm: Function = () => {
 	};
 
 	return (
-		<div className={styles.FormContainer}>
-			<h2>Ajouter votre Todo</h2>
-			<form onSubmit={(e) => onSubmit(e)}>
-				{<label htmlFor='name'>Entrer le titre de votre Todo</label>}
-				<input name='name' type='text' />
-				{<label htmlFor='date'>Entrer la date de votre Todo</label>}
-				{<input name='date' type='text' />}
-				<button type='submit'>Valider la Todo</button>
-			</form>
+		<>
+			<div className={styles.FormContainer}>
+				<h2>Ajouter votre Todo</h2>
+				<form onSubmit={(e) => onSubmit(e)}>
+					<label htmlFor='name'>Entrer le titre de votre Todo</label>
+					<input name='name' type='text' />
+					<button type='submit'>Valider la Todo</button>
+				</form>
+			</div>
 			<ul>
 				{todos.map((todo: string) => (
-					<li key={uuid()}>{todo}</li>
+					<TodosList uuid={uuid()} todo={todo} />
 				))}
 			</ul>
-		</div>
+		</>
 	);
 };
